@@ -26,7 +26,7 @@ ORDER BY employees.emp_no;
 */
 
 SELECT employees.emp_no,dept_emp.from_date,dept_emp.to_date
-FROM employees,dept_emp
-WHERE employees.emp_no = dept_emp.emp_no AND dept_emp.dept_no = 'd005'
+FROM employees,dept_emp,departments
+WHERE employees.emp_no = dept_emp.emp_no AND departments.dept_no = dept_emp.dept_no AND departments.dept_name = 'Development'
 GROUP BY employees.emp_no,dept_emp.from_date,dept_emp.to_date
 ORDER BY employees.emp_no, dept_emp.to_date;
